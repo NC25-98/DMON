@@ -190,7 +190,10 @@ function mapPoll(poll) {
   if (!poll) return null;
 
   const counts = {};
-  (poll.results?.answer_counts || []).forEach((c) => { counts[c.answer_id] = c.count; });
+  // BUG FIX: field ID pada tiap item answer_counts bernama "id", BUKAN "answer_id"
+  // (lihat dokumentasi resmi Poll Results Object). Sebelumnya pakai c.answer_id
+  // yang selalu undefined, jadi count selalu 0 dan vote seolah tidak pernah tampil.
+  (poll.results?.answer_counts || []).forEach((c) => { counts[c.id] = c.count; });
 
   const totalVotes = Object.values(counts).reduce((sum, n) => sum + n, 0);
 
