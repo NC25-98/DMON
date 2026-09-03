@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1e1f22" />
+<title>Server Monitor</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <button id="menuToggle" class="menu-toggle" aria-label="Buka daftar channel">
+      <span></span><span></span><span></span>
+    </button>
+
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">📡 Channel Monitor</span>
+        <button id="closeSidebar" class="close-sidebar" aria-label="Tutup daftar channel">✕</button>
+      </div>
+
+      <div id="channelList" class="channel-list">
+        <div class="state-msg">Memuat channel…</div>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main">
+      <header class="main-header">
+        <div class="current-channel">
+          <span id="channelIcon" class="channel-hash">#</span>
+          <span id="channelName">Pilih channel</span>
+        </div>
+        <button id="refreshBtn" class="refresh-btn" title="Refresh pesan" disabled>
+          <span class="refresh-icon">⟳</span> Refresh
+        </button>
+      </header>
+
+      <div class="load-more-wrap">
+        <button id="loadMoreBtn" class="load-more-btn hidden">Muat pesan lebih lama</button>
+      </div>
+
+      <div id="messages" class="messages">
+        <div class="empty-state">
+          <div class="empty-icon">👈</div>
+          <p>Pilih channel dari sidebar untuk mulai memantau pesan</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
